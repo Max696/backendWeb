@@ -27,13 +27,27 @@ function success(res, payload){
 //const db = require("./config/keys").mongoURI;
 
 // Connect to MongoDB
+
+
+
+mongoose.set("useFindAndModify", false);
 mongoose
   .connect(
     "mongodb+srv://admin:prueba123@try.se00v.mongodb.net/api?retryWrites=true&w=majority",
-    { useNewUrlParser: true }
-  )
-  .then(() => console.log("MongoDB successfully connected"))
-  .catch(err => console.log(err));
+    { useNewUrlParser: true,
+      useUnifiedTopology: true },
+      (err, res) => {
+        if (err) {
+          throw err;
+        } else {
+          console.log("Conexión con Mongoose correctamente");
+          app.listen(process.env.PORT, "0.0.0.0", () => {
+            console.log("######## BACKEND #######");
+          });
+        }
+      }
+    );
+    
 
 
 app.use(passport.initialize()); 
