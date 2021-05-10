@@ -43,6 +43,12 @@ mongoose
           console.log("Conexión con Mongoose correctamente");
           app.listen(process.env.PORT, "0.0.0.0", () => {
             console.log("######## BACKEND #######");
+            app.use(passport.initialize()); 
+            require("./config/passport")(passport);
+            app.use("/api/users", users);
+            app.use("/api/Todos",todo);
+            app.use('/api/postMessages',postMessageRoutes);
+            app.use('/api/Messures',Messures);
           });
         }
       }
@@ -50,17 +56,13 @@ mongoose
     
 
 
-app.use(passport.initialize()); 
-require("./config/passport")(passport);
-
-app.use("/api/users", users);
-app.use("/api/Todos",todo);
-app.use('/api/postMessages',postMessageRoutes);
-app.use('/api/Messures',Messures);
+ // app.use(passport.initialize()); 
+  // require("./config/passport")(passport);
+  // app.use("/api/users", users);
+  // app.use("/api/Todos",todo);
+  // app.use('/api/postMessages',postMessageRoutes);
+  // app.use('/api/Messures',Messures);
 //const port = process.env.PORT || 5000; 
 
 
-app.listen(process.env.PORT, "0.0.0.0", () => {
-  console.log("Funciona~#############");
 
-});
