@@ -24,7 +24,7 @@ function success(res, payload){
   return res.status(200).json(payload);
 }
 // DB Config
-const db = require("./config/keys").mongoURI;
+//const db = require("./config/keys").mongoURI;
 
 // Connect to MongoDB
 mongoose
@@ -43,7 +43,7 @@ app.use("/api/users", users);
 app.use("/api/Todos",todo);
 app.use('/api/postMessages',postMessageRoutes);
 app.use('/api/Messures',Messures);
-const port = process.env.PORT || 5000; 
+//const port = process.env.PORT || 5000; 
 
 
 app.listen(process.env.PORT, "0.0.0.0", () => {
