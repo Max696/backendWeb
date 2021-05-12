@@ -4,13 +4,13 @@ FROM node:14-slim
 
 # set working directory
 
-WORKDIR /usr/src/app
+WORKDIR .
 
 
 
 # install app dependencies
 
-COPY ./package.json ./
+COPY ./package.json .
 
 
 
