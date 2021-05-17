@@ -10,7 +10,7 @@ var { Messure } = require('../../models/messure')
 router.get('/', (req, res) => {
     Messure.find((err, docs) => {
         if (!err) res.send(docs)
-        else console.log('Error while retrieving all records : ' + JSON.stringify(err, undefined, 2))
+        else console.log('Error al buscar los parametros : ' + JSON.stringify(err, undefined, 2))
     })
 })
 
